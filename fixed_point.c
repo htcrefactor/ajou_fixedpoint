@@ -67,7 +67,41 @@ fixed_t fx_sub(fixed_t fa, fixed_t fb)
 
 fixed_t fx_mul(fixed_t fa, fixed_t fb)
 {
-    return 0;
+    fixed_t ret = 0;
+#if _FX_CALCULATION_TYPE == _FX_DOUBLE
+
+#if _FX_SYSTEM == _FX_S1615
+    ret = FX_S1615_ADD(fa, fb);
+#elif _FX_SYSTEM == _FX_S1516
+    ret = fx_s1516_double_add(fx_s1516_to_double(fa), fx_s1516_to_double(fb));
+#elif _FX_SYSTEM == _FX_S2308
+    ret = FX_S2308_MUL(fa, fb);
+#elif _FX_SYSTEM == _FX_S3231
+    ret = fx_3231_double_mul(fa, fb);
+#elif _FX_SYSTEM == _FX_S3132
+    ret = fx_s3132_mul(fa, fb);
+#elif _FX_SYSTEM == _FX_S4716
+    ret = FX_S4716_DOUBLE_MUL(fa, fb);
+#endif //_FX_SYSTEM
+
+#elif _FX_CALCULATION_TYPE == _FX_LONGLONG
+
+#if _FX_SYSTEM == _FX_S1615
+    ret = FX_1615_LONGLONG_MUL1(fa, fb);
+#elif _FX_SYSTEM == _FX_S1516
+    ret = fx_s1516_longlong_mul0(fa, fb);
+#elif _FX_SYSTEM == _FX_S2308
+    ret = FX_S2308_L_MUL(fa, fb);
+#elif _FX_SYSTEM == _FX_S3231
+    ret = fx_3231_longlong_mul1(fa, fb);
+#elif _FX_SYSTEM == _FX_S3132
+    ret = fx32_mul(fa, fb);
+#elif _FX_SYSTEM == _FX_S4716
+    ret = FX_S4716_LONGLONG_MUL1(fa, fb);
+#endif //_FX_SYSTEM
+
+#endif // _FX_CALCULATION_TYPE
+    return ret;
 }
 fixed_t fx_div(fixed_t fa, fixed_t fb)
 {
