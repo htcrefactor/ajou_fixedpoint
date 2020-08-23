@@ -18,8 +18,7 @@
 - [1. functions](#1-functions)
   * [1-1. FX SYSTEM](#1-1-fx-system)
   * [1-2. FX CALCULATION TYPE](#1-2-fx-calculation-type)
-  * [1-3. FX CALCULATION TYPE optional input and output](#1-3-fx-calculation-type-optional-input-and-output)
-  * [1-4. FX CALCULATION TYPE optional functions](#1-4-fx-calculation-type-optional-functions)
+  * [1-3. functions provided](#1-3-functions-provided)
 - [2. function-specific comparison](#2-function-specific-comparison)
   * [2-1. available functions for each type](#2-1-available-functions-for-each-type)
   * [2-2. effective range](#2-2-effective-range)
@@ -61,63 +60,8 @@
 <br>
 <br>
 
-### 1-3. FX CALCULATION TYPE optional input and output
 
-1. double 인 경우
-
-
-```
-[입력]
-숫자 2개를 입력한다. (a,b)
-
-[출력 결과]
-
-fa와 fb의 더하기 연산 실행 결과
-fa와 fb의 뺴기 연산 실행 결과
-fa와 fb의 곱하기 연산 실행 결과
-fa에서 fb 나누는 연산 실행 결과
-
-fa의 sine 연산 실행 결과
-(fa^(fb)) power 연산 실행 결과
-fa의 sqrt 연산 실행 결과
-
-<fa, fb는 a와 b를 각각 fixed_t로 형변환한 숫자>
-```
-
-<br>
-<br>
-
-2. long long 인 경우
-
-```
-[입력]
-숫자 2개를 입력한다. (a,b)
-
-
-[출력 결과]
-
-fa와 fb의 더하기 연산 실행 결과
-fa와 fb의 뺴기 연산 실행 결과
-fa와 fb의 곱하기 연산 실행 결과
-fa에서 fb 나누는 연산 실행 결과
-
-sine 실행 결과
-
-fa와 fb의 곱하기 함수2 실행 결과
-fa와 fb의 나누기 함수2 실행 결과
-fa와 fb의 곱하기 함수3 실행 결과
-fa와 fb의 나누기 함수3 실행 결과
-
-<fa, fb는 a와 b를 각각 fixed_t로 형변환한 숫자>
-
-```
-
-<br>
-<br>
-<br>
-
-
-### 1-4. FX CALCULATION TYPE optional functions
+### 1-3. functions provided
 
 
 | 매크로 및 함수 이름 | 기능 |
@@ -171,19 +115,54 @@ fa와 fb의 나누기 함수3 실행 결과
 
 (수정 필요!!!!!->제맘대로 썼어요 ㅜ_ㅜ 정확히 메크로 어떻게 지정하는지 잘 모르겠어용..!)
 
-- 다음과 같은 순서로 빌드 후 실행 결과를 확인한다.
-        1. ``make DEFINE=D[macro] ``
+- 다음과 같은 순서로 빌드 후 실행 결과를 확인한다.     
+        1. ``make DEFINE=D[macro] ``   
         2. ``./ajou_fx``
 
 
     - 조건부 컴파일을 이용하여 macro의 정의에 따라 다른 연산이 수행되도록 코드를 구성하였다.
         ```
-        [ifdef로 정의된 macro]
-        (1) MULTIPLE_TIME_TEST : 곱셈을 수행하는 경우, double vs long long 시간 테스트
-        (2) DIVISION_TIME_TEST : 나눗셈을 수행하는 경우, double vs long long 시간 테스트
-        (3) SIN_PRECISION_TEST : sine table이 알맞은지 확인하기 위해 시험해주는 테스트
-        (4) FX_MUL_TEST : scanf로 두개의 숫자를 받았을 때, 정의된 4가지 함수로 곱셈을 수행해주는 테스트
-        -->FX_S1615_MUL(a, b), FX_1615_LONGLONG_MUL1(a, b),FX_1615_LONGLONG_MUL2(a, b),FX_1615_LONGLONG_MUL3(a, b)
-        (5) FX_DIV_TEST : scanf로 두개의 숫자를 받았을 때, 정의된 4가지 함수로 나눗셈을 수행해주는 테스트
-        -->FX_S1615_DIV(a, b), FX_1615_LONGLONG_DIV01(a,b),FX_1615_LONGLONG_DIV02(a,b),FX_1615_LONGLONG_DIV03(a,b)
+        [정의된 macro]
+        1. _FX_CALCULATION_TYPE
+            (1) _FX_DOUBLE
+                [input]
+                숫자 2개를 입력한다. (a,b)
+
+                [output]
+                fa와 fb의 더하기 연산 실행 결과
+                fa와 fb의 뺴기 연산 실행 결과
+                fa와 fb의 곱하기 연산 실행 결과
+                fa에서 fb 나누는 연산 실행 결과
+
+                fa의 sine 연산 실행 결과
+                (fa^(fb)) power 연산 실행 결과
+                fa의 sqrt 연산 실행 결과
+
+            (2) _FX_LONGLONG
+                [input]
+                숫자 2개를 입력한다. (a,b)
+
+                [output]
+                fa와 fb의 더하기 연산 실행 결과
+                fa와 fb의 뺴기 연산 실행 결과
+                fa와 fb의 곱하기 연산 실행 결과
+                fa에서 fb 나누는 연산 실행 결과
+
+                sine 실행 결과
+
+                fa와 fb의 곱하기 함수2 실행 결과
+                fa와 fb의 나누기 함수2 실행 결과
+                fa와 fb의 곱하기 함수3 실행 결과
+                fa와 fb의 나누기 함수3 실행 결과
+
+
+        
+        2. _FX_SYSTEM
+            (1) _FX_S1615 : fixed_t가 fx_s1615로 정의된 경우의 연산 수행
+            (2) _FX_S1516 : fixed_t가 fx_s1516로 정의된 경우의 연산 수행
+            (3) _FX_S2308 : fixed_t가 fx_s2308로 정의된 경우의 연산 수행
+            (4) _FX_S3231 : fixed_t가 fx_s3231로 정의된 경우의 연산 수행
+            (5) _FX_S3132 : fixed_t가 fx_s3132로 정의된 경우의 연산 수행
+            (6) _FX_S4716 : fixed_t가 fx_s4716로 정의된 경우의 연산 수행
+            
         ```
