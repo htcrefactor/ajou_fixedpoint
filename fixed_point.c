@@ -115,12 +115,55 @@ fixed_t fx_sin(fixed_t fa)
 
 fixed_t fx_pow(fixed_t fa, fixed_t fb)
 {
-    return 0;
+    fixed_t ret = 0;
+#if _FX_CALCULATION_TYPE == _FX_DOUBLE
+
+#if _FX_SYSTEM == _FX_S1615
+    ret = power_fx_s1615_int(fa, FX_S1615_INT_TO_DOUBLE(fb));
+#elif _FX_SYSTEM == _FX_S1516
+    ret = fx_s1516_double_pow(fx_s1516_to_double(fa), fx_s1516_to_double(fb));
+#elif _FX_SYSTEM == _FX_S2308
+    ret = fx_s2308_double_pow(fa, FX_S2308_TO_DOUBLE(fb));
+#elif _FX_SYSTEM == _FX_S3231
+    ret = fx_3231_double_power(fa, fb);
+#elif _FX_SYSTEM == _FX_S3132
+    ret = fx_s3132_power2(fa, fb);
+#elif _FX_SYSTEM == _FX_S4716
+    //no implementation
+#endif //_FX_SYSTEM
+
+#elif _FX_CALCULATION_TYPE == _FX_LONGLONG
+//no implementation
+
+#endif // _FX_CALCULATION_TYPE
+    return ret;
 }
+
 
 fixed_t fx_sqrt(fixed_t fa)
 {
-    return 0;
+    fixed_t ret = 0;
+#if _FX_CALCULATION_TYPE == _FX_DOUBLE
+
+#if _FX_SYSTEM == _FX_S1615
+    ret = sqrt_fx_s1615_int(fa);
+#elif _FX_SYSTEM == _FX_S1516
+    ret = fx_s1516_double_sqrt(fx_s1516_to_double(fa));
+#elif _FX_SYSTEM == _FX_S2308
+    ret = fx_s2308_double_sqrt(fa);
+#elif _FX_SYSTEM == _FX_S3231
+    ret = fx_3231_double_sqrt(fa);
+#elif _FX_SYSTEM == _FX_S3132
+    ret = fx_s3132_sqrt2(fa);
+#elif _FX_SYSTEM == _FX_S4716
+    FX_S4716_DOUBLE_SQRT(FX_S4716_TO_DOUBLE(fa));
+#endif //_FX_SYSTEM
+
+#elif _FX_CALCULATION_TYPE == _FX_LONGLONG
+//no implementation
+
+#endif // _FX_CALCULATION_TYPE
+    return ret;
 }
 
 
