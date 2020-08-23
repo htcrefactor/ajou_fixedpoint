@@ -1,6 +1,6 @@
 #include "fx_s3132_longlong.h"
 
-#if defined(__FX32__)
+#ifdef __FX32__
 
 const fixed32 fx32_SinTable[92] =
     {
@@ -33,4 +33,4 @@ fixed32 fx32_sind(fixed32 fa)
     return (sign * (ret0 + ((diff * (fa & 0xFFFF)) >> 16)));
 }
 
-#endif
+#endif //__FX32__

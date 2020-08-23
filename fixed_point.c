@@ -15,36 +15,36 @@ typedef enum fx_calculation_type {
 } fx_calculation_type_t;
 
 
-fixed_t add(fixed_T fa, fixed_t fb)
+fixed_t fx_add(fixed_t fa, fixed_t fb)
 {
     return 0;
 }
 
-fixed_t sub(fixed_T fa, fixed_t fb)
+fixed_t fx_sub(fixed_t fa, fixed_t fb)
 {
     return 0;
 }
 
-fixed_t mul(fixed_T fa, fixed_t fb)
+fixed_t fx_mul(fixed_t fa, fixed_t fb)
 {
     return 0;
 }
-fixed_t div(fixed_T fa, fixed_t fb)
-{
-    return 0;
-}
-
-fixed_t sin(fixed_T fa)
+fixed_t fx_div(fixed_t fa, fixed_t fb)
 {
     return 0;
 }
 
-fixed_t pow(fixed_T fa, fixed_t fb)
+fixed_t fx_sin(fixed_t fa)
 {
     return 0;
 }
 
-fixed_t sqrt(fixed_T fa)
+fixed_t fx_pow(fixed_t fa, fixed_t fb)
+{
+    return 0;
+}
+
+fixed_t fx_sqrt(fixed_t fa)
 {
     return 0;
 }

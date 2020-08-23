@@ -8,8 +8,8 @@ typedef int fx_s1516;
 #define P2_16 65536
 #define fP2_16 65536.0
 #define e M_E
-#define fx_s1516_PI M_PI
-#define fx_s1516_INVERSE_PI 1 / M_PI
+#define FX_S1516_PI M_PI
+#define FX_S1516_INVERSE_PI 1 / M_PI
 
 extern fx_s1516 double_to_fx(double a);
 extern double fx_to_double(fx_s1516 a);

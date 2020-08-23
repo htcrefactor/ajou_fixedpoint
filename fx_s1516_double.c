@@ -33,7 +33,7 @@ double fx_s1516_double_div(double a, double b)
 
 double degree_to_radian(double a)
 {
-    return ((a)*fx_s1516_PI / 180);
+    return ((a) * FX_S1516_PI / 180);
 }
 
 double fx_s1516_double_sin(double a)
