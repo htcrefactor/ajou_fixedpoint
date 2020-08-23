@@ -36,7 +36,7 @@ fixed_t fx_add(fixed_t fa, fixed_t fb)
 #endif //_FX_SYSTEM
 
 #elif _FX_CALCULATION_TYPE == _FX_LONGLONG
-    ret = fa + fb
+    ret = fa + fb;
 #endif // _FX_CALCULATION_TYPE
 
     return ret;
@@ -63,7 +63,7 @@ fixed_t fx_sub(fixed_t fa, fixed_t fb)
 #endif //_FX_SYSTEM
 
 #elif _FX_CALCULATION_TYPE == _FX_LONGLONG
-    ret = fa - fb
+    ret = fa - fb;
 #endif // _FX_CALCULATION_TYPE
 
     return ret;
@@ -179,7 +179,7 @@ fixed_t fx_div1(fixed_t fa, fixed_t fb)
 
 #elif _FX_CALCULATION_TYPE == _FX_LONGLONG
 #if _FX_SYSTEM == _FX_S1615
-    ret = FX_S1615_LONGLONG_DIV01(fa, fb);
+    ret = FX_1615_LONGLONG_DIV01(fa, fb);
 #elif _FX_SYSTEM == _FX_S1516
     ret = fx_s1516_longlong_div0(double_to_fx_s1516(fa), double_to_fx_s1516(fb));
 #elif _FX_SYSTEM == _FX_S2308
@@ -387,16 +387,17 @@ int main(void)
     printf("Div result : %lf\n",   fx_to_double(fx_div1(fa, fb)));
     printf("Sin result : %lf\n",  fx_to_double(fx_sin(fa)));
 
+
 #if _FX_CALCULATION_TYPE == _FX_LONGLONG
     printf("Mul2 result : %lf\n",   fx_to_double(fx_mul2(fa,  fb)));
     printf("Div2 result : %lf\n",   fx_to_double(fx_div2(fa, fb)));
     printf("Mul3 result : %lf\n",   fx_to_double(fx_mul3(fa,  fb)));
     printf("Div3 result : %lf\n",   fx_to_double(fx_div3(fa, fb)));
 
-
 #elif _FX_CALCULATION_TYPE == _FX_DOUBLE
     printf("Pow result : %lf\n",  fx_to_double(fx_pow(fa,fb)));
     printf("Sqrt result : %lf\n",   fx_to_double(fx_sqrt(fa)));
+
 #endif
 
     return 0;

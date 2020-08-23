@@ -13,7 +13,17 @@
 #include "headers/fx_s4716_longlong.h"
 
 
+#define _FX_S1615 1
+#define _FX_S1516 2
 
+#define _FX_S3231 3
+#define _FX_S3132 4
+
+#define _FX_S4716 5 
+#define _FX_S2308 6
+
+#define _FX_DOUBLE 1
+#define _FX_LONGLONG 2
 /*
 _FX_S1615
 _FX_S1516
@@ -31,7 +41,7 @@ _FX_LONGLONG
 
 
 #define _FX_SYSTEM _FX_S1615
-#define _FX_CALCULATION_TYPE _FX_DOUBLE
+#define _FX_CALCULATION_TYPE _FX_LONGLONG
 
 #if _FX_SYSTEM == _FX_S1615
 typedef fx_s1615 fixed_t;
