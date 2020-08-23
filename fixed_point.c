@@ -18,6 +18,7 @@ typedef enum fx_calculation_type {
 fixed_t fx_add(fixed_t fa, fixed_t fb)
 {
     fixed_t ret = 0;
+    
 #if _FX_CALCULATION_TYPE == _FX_DOUBLE
 
 #if _FX_SYSTEM == _FX_S1615
@@ -37,12 +38,14 @@ fixed_t fx_add(fixed_t fa, fixed_t fb)
 #elif _FX_CALCULATION_TYPE == _FX_LONGLONG
     ret = fa + fb
 #endif // _FX_CALCULATION_TYPE
+
     return ret;
 }
 
 fixed_t fx_sub(fixed_t fa, fixed_t fb)
 {
     fixed_t ret = 0;
+
 #if _FX_CALCULATION_TYPE == _FX_DOUBLE
 
 #if _FX_SYSTEM == _FX_S1615
@@ -62,12 +65,14 @@ fixed_t fx_sub(fixed_t fa, fixed_t fb)
 #elif _FX_CALCULATION_TYPE == _FX_LONGLONG
     ret = fa - fb
 #endif // _FX_CALCULATION_TYPE
+
     return ret;
 }
 
 fixed_t fx_mul(fixed_t fa, fixed_t fb)
 {
     fixed_t ret = 0;
+
 #if _FX_CALCULATION_TYPE == _FX_DOUBLE
 
 #if _FX_SYSTEM == _FX_S1615
@@ -101,12 +106,14 @@ fixed_t fx_mul(fixed_t fa, fixed_t fb)
 #endif //_FX_SYSTEM
 
 #endif // _FX_CALCULATION_TYPE
+
     return ret;
 }
 
 fixed_t fx_div(fixed_t fa, fixed_t fb)
 {
     fixed_t ret = 0;
+
 #if _FX_CALCULATION_TYPE == _FX_DOUBLE
 #if _FX_SYSTEM == _FX_S1615
     ret = FX_S1615_DIV(fa, fb);
@@ -137,12 +144,49 @@ fixed_t fx_div(fixed_t fa, fixed_t fb)
     ret = FX_S4716_LONGLONG_DIV(fa, fb);
 #endif //_FX_SYSTEM
 #endif // _FX_CALCULATION_TYPE
-    return 0;
+
+    return ret;
 }
 
 fixed_t fx_sin(fixed_t fa)
 {
-    return 0;
+    fixed_t ret = 0;
+
+#if _FX_CALCULATION_TYPE == _FX_DOUBLE
+
+#if _FX_SYSTEM == _FX_S1615
+    ret = sine_fx_s1615_int(fa);
+#elif _FX_SYSTEM == _FX_S1516
+    ret = fx_s1516_double_sin(fx_s1516_to_double(fa));
+#elif _FX_SYSTEM == _FX_S2308
+    ret = fx_s2308_double_sine(fa);
+#elif _FX_SYSTEM == _FX_S3231
+    ret = fx_3231_double_sin(fa);
+#elif _FX_SYSTEM == _FX_S3132
+    ret = fx_s3132_sin2(fa);
+#elif _FX_SYSTEM == _FX_S4716
+    ret = FX_S4716_DOUBLE_SINE(fa);
+#endif //_FX_SYSTEM
+
+#elif _FX_CALCULATION_TYPE == _FX_LONGLONG
+
+#if _FX_SYSTEM == _FX_S1615
+    ret = sine_fx_s1615_longlong(fa);
+#elif _FX_SYSTEM == _FX_S1516
+    ret = fx_s1516_longlong_sin(fa);
+#elif _FX_SYSTEM == _FX_S2308
+    ret = fx_s2308_sind(fa);
+#elif _FX_SYSTEM == _FX_S3231
+    ret = fx_3231_longlong_sin(fa);
+#elif _FX_SYSTEM == _FX_S3132
+    // no implements
+#elif _FX_SYSTEM == _FX_S4716
+    ret = fx_s4716_longlong_sin(fa);
+#endif //_FX_SYSTEM
+
+#endif // _FX_CALCULATION_TYPE
+
+    return ret;
 }
 
 fixed_t fx_pow(fixed_t fa, fixed_t fb)
