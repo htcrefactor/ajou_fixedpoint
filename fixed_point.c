@@ -42,7 +42,27 @@ fixed_t fx_add(fixed_t fa, fixed_t fb)
 
 fixed_t fx_sub(fixed_t fa, fixed_t fb)
 {
-    return 0;
+    fixed_t ret = 0;
+#if _FX_CALCULATION_TYPE == _FX_DOUBLE
+
+#if _FX_SYSTEM == _FX_S1615
+    ret = FX_S1615_SUB(fa, fb);
+#elif _FX_SYSTEM == _FX_S1516
+    ret = fx_s1516_double_sub(double_to_fx_s1516(fa), double_to_fx_s1516(fb));
+#elif _FX_SYSTEM == _FX_S2308
+    ret = FX_S2308_SUB(fa, fb);
+#elif _FX_SYSTEM == _FX_S3231
+    ret = fx_3231_double_sub(fa, fb);
+#elif _FX_SYSTEM == _FX_S3132
+    ret = fx_s3132_sub(fa, fb);
+#elif _FX_SYSTEM == _FX_S4716
+    ret = FX_S4716_DOUBLE_SUB(fa, fb);
+#endif //_FX_SYSTEM
+
+#elif _FX_CALCULATION_TYPE == _FX_LONGLONG
+    ret = fa - fb
+#endif // _FX_CALCULATION_TYPE
+    return ret;
 }
 
 fixed_t fx_mul(fixed_t fa, fixed_t fb)
