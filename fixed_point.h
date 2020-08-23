@@ -54,3 +54,5 @@ fixed_t fx_div(fixed_t fa, fixed_t fb);
 fixed_t fx_sin(fixed_t fa);
 fixed_t fx_pow(fixed_t fa, fixed_t fb);
 fixed_t fx_sqrt(fixed_t fa);
+fixed_t double_to_fx(double a);
+double fx_to_double(fixed_t fa);
