@@ -9,7 +9,7 @@ ajou_fx : $(OBJS)
 
 clean: 
 	-rm $(OBJS)
-	-rm mytest exam2 exam3
+	-rm ajou_fx
 
 dep:
 	gccmakedep $(SRCS)
