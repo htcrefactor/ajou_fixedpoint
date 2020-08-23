@@ -76,9 +76,9 @@ fixed_t fx_mul(fixed_t fa, fixed_t fb)
 #if _FX_CALCULATION_TYPE == _FX_DOUBLE
 
 #if _FX_SYSTEM == _FX_S1615
-    ret = FX_S1615_ADD(fa, fb);
+    ret = FX_S1615_MUL(fa, fb);
 #elif _FX_SYSTEM == _FX_S1516
-    ret = fx_s1516_double_add(fx_s1516_to_double(fa), fx_s1516_to_double(fb));
+    ret = fx_s1516_double_mul(fx_s1516_to_double(fa), fx_s1516_to_double(fb));
 #elif _FX_SYSTEM == _FX_S2308
     ret = FX_S2308_MUL(fa, fb);
 #elif _FX_SYSTEM == _FX_S3231
@@ -243,6 +243,66 @@ fixed_t fx_sqrt(fixed_t fa)
 }
 
 
+fixed_t double_to_fx(double a){
+    fixed_t ret = 0;
+    #if _FX_SYSTEM == _FX_S1615
+        ret = FX_S1615_DOUBLE_TO_INT(a);
+    #elif _FX_SYSTEM == _FX_S1516
+        ret = double_to_fx_s1516(a);
+    #elif _FX_SYSTEM == _FX_S2308
+        ret = DOUBLE_TO_FX_S2308(a);
+    #elif _FX_SYSTEM == _FX_S3231
+        ret = doubleToFx(a);
+    #elif _FX_SYSTEM == _FX_S3132
+        ret = double_to_fx_s3132(a);
+    #elif _FX_SYSTEM == _FX_S4716
+        ret = DOUBLE_TO_FX_S4716(a);
+    #endif //_FX_SYSTEM
+    
+    return ret;
+}
+
+double fx_to_double(fixed_t fa){
+    double ret = 0;
+    #if _FX_SYSTEM == _FX_S1615
+        ret = FX_S1615_INT_TO_DOUBLE(fa);
+    #elif _FX_SYSTEM == _FX_S1516
+        ret = fx_s1516_to_double(fa);
+    #elif _FX_SYSTEM == _FX_S2308
+        ret = FX_S2308_TO_DOUBLE(fa);
+    #elif _FX_SYSTEM == _FX_S3231
+        ret = fxToDouble(fa);
+    #elif _FX_SYSTEM == _FX_S3132
+        ret = fx_s3132_to_double(fa);
+    #elif _FX_SYSTEM == _FX_S4716
+        ret = FX_S4716_TO_DOUBLE(fa);
+    #endif //_FX_SYSTEM
+    
+    return ret;
+}
+
+int main(void)
+{
+    double a,b;
+    scanf("%lf %lf", &a ,&b);
+    fixed_t fa, fb;
+    fa = double_to_fx(a);
+    fb = double_to_fx(b);
+    
+    printf("Add result : %lf\n",  fx_to_double(fx_add(fa, fb)));
+    printf("Sub result : %lf\n",   fx_to_double(fx_sub(fa, fb)));
+    printf("Mul result : %lf\n",   fx_to_double(fx_mul(fa,  fb)));
+    printf("Div result : %lf\n",   fx_to_double(fx_div(fa, fb)));
+    
+#if _FX_CALCULATION_TYPE == _FX_DOUBLE
+    printf("Sin result : %lf\n",  fx_to_double(fx_sin(fa)));
+    printf("Pow result : %lf\n",  fx_to_double(fx_pow(fa,fb)));
+    printf("Sqrt result : %lf\n",   fx_to_double(fx_sqrt(fa)));
+#endif
+
+
+    return 0;
+}
 
 
 
