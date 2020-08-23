@@ -13,9 +13,11 @@
 
 ## 목차
 
-## 기능
+(링크 추가하면 될 것 같아요)
 
-### 1. _FX_SYSTEM
+## 1. 기능
+
+### 1-1. _FX_SYSTEM
 
 
 ```
@@ -33,7 +35,7 @@
 <br>
 <br>
 
-### 2. _FX_CALCULATION_TYPE
+### 1-2. _FX_CALCULATION_TYPE
  
 
 ```
@@ -45,7 +47,8 @@
 <br>
 <br>
 
-### 3. _FX_CALCULATION_TYPE option 별 기능
+### 1-3. _FX_CALCULATION_TYPE optional input and output
+
 1. double 인 경우
 
 ```
@@ -98,7 +101,8 @@ fa와 fb의 나누기 함수3 실행 결과
 <br>
 <br>
 
-### 4. 제공되는 기능
+
+### 4. _FX_CALCULATION_TYPE optional functions
 
 
 | 매크로 및 함수 이름 | 기능 |
@@ -128,9 +132,9 @@ fa와 fb의 나누기 함수3 실행 결과
 
 
 
-## 기능 별 비교
+## function-specific comparison
 
 표 삽입하고 유효범위 넣으면 좋을 것 같아요!
 
-## 실행 방법
+## execution method
 make file & macro 주는법 명시하기
