@@ -10,6 +10,6 @@ typedef long long fx_s3231;
 #define fx_3231_double_mul(a, b) (doubleToFx(fxToDouble(a) * fxToDouble(b)))
 #define fx_3231_double_div(a, b) (doubleToFx(fxToDouble(a) / fxToDouble(b)))
 
-extern long long fx_3231_double_sin();
-extern long long fx_3231_double_sqrt();
-extern long long fx_3231_double_power();
+extern long long fx_3231_double_sin(fx_s3231 a);
+extern long long fx_3231_double_sqrt(fx_s3231 a);
+extern long long fx_3231_double_power(fx_s3231 a, fx_s3231 b);
