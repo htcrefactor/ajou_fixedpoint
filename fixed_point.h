@@ -49,8 +49,12 @@ typedef fx_s4716 fixed_t;
 
 fixed_t fx_add(fixed_t fa, fixed_t fb);
 fixed_t fx_sub(fixed_t fa, fixed_t fb);
-fixed_t fx_mul(fixed_t fa, fixed_t fb);
-fixed_t fx_div(fixed_t fa, fixed_t fb);
+fixed_t fx_mul1(fixed_t fa, fixed_t fb);
+fixed_t fx_mul2(fixed_t fa, fixed_t fb);
+fixed_t fx_mul3(fixed_t fa, fixed_t fb);
+fixed_t fx_div1(fixed_t fa, fixed_t fb);
+fixed_t fx_div2(fixed_t fa, fixed_t fb);
+fixed_t fx_div3(fixed_t fa, fixed_t fb);
 fixed_t fx_sin(fixed_t fa);
 fixed_t fx_pow(fixed_t fa, fixed_t fb);
 fixed_t fx_sqrt(fixed_t fa);

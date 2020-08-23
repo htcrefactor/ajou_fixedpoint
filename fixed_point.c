@@ -69,7 +69,7 @@ fixed_t fx_sub(fixed_t fa, fixed_t fb)
     return ret;
 }
 
-fixed_t fx_mul(fixed_t fa, fixed_t fb)
+fixed_t fx_mul1(fixed_t fa, fixed_t fb)
 {
     fixed_t ret = 0;
 
@@ -110,7 +110,55 @@ fixed_t fx_mul(fixed_t fa, fixed_t fb)
     return ret;
 }
 
-fixed_t fx_div(fixed_t fa, fixed_t fb)
+fixed_t fx_mul2(fixed_t fa, fixed_t fb)
+{
+    fixed_t ret = 0;
+
+#if _FX_SYSTEM == _FX_S1615
+    ret = FX_1615_LONGLONG_MUL2(fa, fb);
+#elif _FX_SYSTEM == _FX_S1516
+    ret = fx_s1516_longlong_mul2(fa, fb);
+#elif _FX_SYSTEM == _FX_S2308
+    ret = FX_S2308_L_MUL3(fa, fb);
+#elif _FX_SYSTEM == _FX_S3231
+    ret = fx_3231_longlong_mul2(fa, fb);
+#elif _FX_SYSTEM == _FX_S3132
+    ret = fx32_mul1(fa, fb);
+#elif _FX_SYSTEM == _FX_S4716
+    ret = FX_S4716_LONGLONG_MUL2(fa, fb);
+#endif //_FX_SYSTEM
+
+
+    return ret;
+}
+
+fixed_t fx_mul3(fixed_t fa, fixed_t fb)
+{
+    fixed_t ret = 0;
+
+
+#if _FX_SYSTEM == _FX_S1615
+    ret = FX_1615_LONGLONG_MUL3(fa, fb);
+#elif _FX_SYSTEM == _FX_S1516
+    ret = fx_s1516_longlong_mul4(fa, fb);
+#elif _FX_SYSTEM == _FX_S2308
+    ret = FX_S2308_L_MUL4(fa, fb);
+#elif _FX_SYSTEM == _FX_S3231
+    ret = fx_3231_longlong_mul3(fa, fb);
+#elif _FX_SYSTEM == _FX_S3132
+    ret = fx32_mul2(fa, fb);
+#elif _FX_SYSTEM == _FX_S4716
+    ret = FX_S4716_LONGLONG_MUL3(fa, fb);
+#endif //_FX_SYSTEM
+
+
+    return ret;
+}
+
+
+
+
+fixed_t fx_div1(fixed_t fa, fixed_t fb)
 {
     fixed_t ret = 0;
 
@@ -131,7 +179,7 @@ fixed_t fx_div(fixed_t fa, fixed_t fb)
 
 #elif _FX_CALCULATION_TYPE == _FX_LONGLONG
 #if _FX_SYSTEM == _FX_S1615
-    ret = FX_S1615_LONGLONG_DIV3(fa, fb);
+    ret = FX_S1615_LONGLONG_DIV1(fa, fb);
 #elif _FX_SYSTEM == _FX_S1516
     ret = fx_s1516_longlong_div0(double_to_fx_s1516(fa), double_to_fx_s1516(fb));
 #elif _FX_SYSTEM == _FX_S2308
@@ -141,12 +189,56 @@ fixed_t fx_div(fixed_t fa, fixed_t fb)
 #elif _FX_SYSTEM == _FX_S3132
     ret = fx_s3132_div(fa, fb);
 #elif _FX_SYSTEM == _FX_S4716
-    ret = FX_S4716_LONGLONG_DIV(fa, fb);
+    ret = FX_S4716_LONGLONG_DIV1(fa, fb);
 #endif //_FX_SYSTEM
 #endif // _FX_CALCULATION_TYPE
 
     return ret;
 }
+
+fixed_t fx_div2(fixed_t fa, fixed_t fb)
+{
+    fixed_t ret = 0;
+
+#if _FX_SYSTEM == _FX_S1615
+    ret = FX_S1615_LONGLONG_DIV2(fa, fb);
+#elif _FX_SYSTEM == _FX_S1516
+    ret = fx_s1516_longlong_div1(double_to_fx_s1516(fa), double_to_fx_s1516(fb));
+#elif _FX_SYSTEM == _FX_S2308
+    ret = FX_S2308_L_DIV2(fa, fb);
+#elif _FX_SYSTEM == _FX_S3231
+    ret = fx_3231_longlong_div2(fa, fb);
+#elif _FX_SYSTEM == _FX_S3132
+    ret = fx_s3132_div1(fa, fb);
+#elif _FX_SYSTEM == _FX_S4716
+    ret = FX_S4716_LONGLONG_DIV2(fa, fb);
+#endif //_FX_SYSTEM
+
+
+    return ret;
+}
+
+fixed_t fx_div3(fixed_t fa, fixed_t fb)
+{
+    fixed_t ret = 0;
+
+#if _FX_SYSTEM == _FX_S1615
+    ret = FX_S1615_LONGLONG_DIV3(fa, fb);
+#elif _FX_SYSTEM == _FX_S1516
+    ret = fx_s1516_longlong_div2(double_to_fx_s1516(fa), double_to_fx_s1516(fb));
+#elif _FX_SYSTEM == _FX_S2308
+    //no implementation
+#elif _FX_SYSTEM == _FX_S3231
+    ret = fx_3231_longlong_div3(fa, fb);
+#elif _FX_SYSTEM == _FX_S3132
+    ret = fx_s3132_div2(fa, fb);
+#elif _FX_SYSTEM == _FX_S4716
+    ret = FX_S4716_LONGLONG_DIV3(fa, fb);
+#endif //_FX_SYSTEM
+
+    return ret;
+}
+
 
 fixed_t fx_sin(fixed_t fa)
 {
@@ -291,15 +383,21 @@ int main(void)
     
     printf("Add result : %lf\n",  fx_to_double(fx_add(fa, fb)));
     printf("Sub result : %lf\n",   fx_to_double(fx_sub(fa, fb)));
-    printf("Mul result : %lf\n",   fx_to_double(fx_mul(fa,  fb)));
-    printf("Div result : %lf\n",   fx_to_double(fx_div(fa, fb)));
-    
-#if _FX_CALCULATION_TYPE == _FX_DOUBLE
+    printf("Mul result : %lf\n",   fx_to_double(fx_mul1(fa,  fb)));
+    printf("Div result : %lf\n",   fx_to_double(fx_div1(fa, fb)));
     printf("Sin result : %lf\n",  fx_to_double(fx_sin(fa)));
+
+#if _FX_CALCULATION_TYPE == _FX_LONGLONG
+    printf("Mul2 result : %lf\n",   fx_to_double(fx_mul2(fa,  fb)));
+    printf("Div2 result : %lf\n",   fx_to_double(fx_div2(fa, fb)));
+    printf("Mul3 result : %lf\n",   fx_to_double(fx_mul3(fa,  fb)));
+    printf("Div3 result : %lf\n",   fx_to_double(fx_div3(fa, fb)));
+
+
+#elif _FX_CALCULATION_TYPE == _FX_DOUBLE
     printf("Pow result : %lf\n",  fx_to_double(fx_pow(fa,fb)));
     printf("Sqrt result : %lf\n",   fx_to_double(fx_sqrt(fa)));
 #endif
-
 
     return 0;
 }
