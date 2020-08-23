@@ -1,7 +1,7 @@
 # ajou_fx_team1
 아주대학교 2020년 여름방학 실전코딩2 고정 소수점 연산 통합 라이브러리
 
-## 구성원
+## 팀원
 
 | 이름 | 학번 | 
 | ---- | ---- |
@@ -15,7 +15,9 @@
 
 (링크 추가하면 될 것 같아요)
 
-## 1. 기능
+
+
+## 1. functions
 
 ### 1-1. _FX_SYSTEM
 
@@ -50,6 +52,7 @@
 ### 1-3. _FX_CALCULATION_TYPE optional input and output
 
 1. double 인 경우
+
 
 ```
 [입력]
@@ -102,7 +105,7 @@ fa와 fb의 나누기 함수3 실행 결과
 <br>
 
 
-### 4. _FX_CALCULATION_TYPE optional functions
+### 1-4. _FX_CALCULATION_TYPE optional functions
 
 
 | 매크로 및 함수 이름 | 기능 |
@@ -128,13 +131,28 @@ fa와 fb의 나누기 함수3 실행 결과
 
 <br>
 <br>
+<br>
 
 
 
+## 2. function-specific comparison
 
-## function-specific comparison
+### 2-1. available functions for each type 
 
-표 삽입하고 유효범위 넣으면 좋을 것 같아요!
+![image](images/Function_list.png)
 
-## execution method
-make file & macro 주는법 명시하기
+
+<br>
+<br>
+
+### 2-2. effective range
+
+(유효범위 넣기)
+
+
+<br>
+<br>
+<br>
+
+## 3. execution method
+(make file & macro 주는법 명시하기)
