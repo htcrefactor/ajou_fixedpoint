@@ -179,7 +179,7 @@ fixed_t fx_div1(fixed_t fa, fixed_t fb)
 
 #elif _FX_CALCULATION_TYPE == _FX_LONGLONG
 #if _FX_SYSTEM == _FX_S1615
-    ret = FX_S1615_LONGLONG_DIV1(fa, fb);
+    ret = FX_S1615_LONGLONG_DIV01(fa, fb);
 #elif _FX_SYSTEM == _FX_S1516
     ret = fx_s1516_longlong_div0(double_to_fx_s1516(fa), double_to_fx_s1516(fb));
 #elif _FX_SYSTEM == _FX_S2308
@@ -201,7 +201,7 @@ fixed_t fx_div2(fixed_t fa, fixed_t fb)
     fixed_t ret = 0;
 
 #if _FX_SYSTEM == _FX_S1615
-    ret = FX_S1615_LONGLONG_DIV2(fa, fb);
+    ret = FX_1615_LONGLONG_DIV02(fa, fb);
 #elif _FX_SYSTEM == _FX_S1516
     ret = fx_s1516_longlong_div1(double_to_fx_s1516(fa), double_to_fx_s1516(fb));
 #elif _FX_SYSTEM == _FX_S2308
@@ -223,7 +223,7 @@ fixed_t fx_div3(fixed_t fa, fixed_t fb)
     fixed_t ret = 0;
 
 #if _FX_SYSTEM == _FX_S1615
-    ret = FX_S1615_LONGLONG_DIV3(fa, fb);
+    ret = FX_1615_LONGLONG_DIV03(fa, fb);
 #elif _FX_SYSTEM == _FX_S1516
     ret = fx_s1516_longlong_div2(double_to_fx_s1516(fa), double_to_fx_s1516(fb));
 #elif _FX_SYSTEM == _FX_S2308
