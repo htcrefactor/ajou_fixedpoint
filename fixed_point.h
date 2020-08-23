@@ -68,3 +68,12 @@ typedef fx_s4716 fixed_t;
 
 // _FX_SYSTEM == _FX_LONGLONG
 #endif 
+
+
+fixed_t add(fixed_T fa, fixed_t fb);
+fixed_t sub(fixed_T fa, fixed_t fb);
+fixed_t mul(fixed_T fa, fixed_t fb);
+fixed_t div(fixed_T fa, fixed_t fb);
+fixed_t sin(fixed_T fa);
+fixed_t pow(fixed_T fa, fixed_t fb);
+fixed_t sqrt(fixed_T fa);
