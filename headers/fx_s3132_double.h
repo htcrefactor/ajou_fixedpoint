@@ -17,11 +17,11 @@
 #define fx_PI() (double_to_fx(PI))
 #define fx_PI_Reverse() (double_to_fx((1 / PI)))
 
-typedef long long fx_3132;
+typedef long long fx_s3132;
 
-fx_3132 sin2(fx_3132 a);
-fx_3132 sqrt2(fx_3132 a);
-fx_3132 power2(fx_3132 a, fx_3132 b);
+fx_s3132 sin2(fx_s3132 a);
+fx_s3132 sqrt2(fx_s3132 a);
+fx_s3132 power2(fx_s3132 a, fx_s3132 b);
 
-fx_3132 piReverse2();
-fx_3132 pi2();
+fx_s3132 piReverse2();
+fx_s3132 pi2();
