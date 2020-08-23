@@ -103,8 +103,40 @@ fixed_t fx_mul(fixed_t fa, fixed_t fb)
 #endif // _FX_CALCULATION_TYPE
     return ret;
 }
+
 fixed_t fx_div(fixed_t fa, fixed_t fb)
 {
+    fixed_t ret = 0;
+#if _FX_CALCULATION_TYPE == _FX_DOUBLE
+#if _FX_SYSTEM == _FX_S1615
+    ret = FX_S1615_DIV(fa, fb);
+#elif _FX_SYSTEM == _FX_S1516
+    ret = fx_s1516_double_div(double_to_fx_s1516(fa), double_to_fx_s1516(fb));
+#elif _FX_SYSTEM == _FX_S2308
+    ret = FX_S2308_DIV(fa, fb);
+#elif _FX_SYSTEM == _FX_S3231
+    ret = fx_3231_double_div(fa, fb);
+#elif _FX_SYSTEM == _FX_S3132
+    ret = fx_s3132_div(fa, fb);
+#elif _FX_SYSTEM == _FX_S4716
+    ret = FX_S4716_DOUBLE_DIV(fa, fb);
+#endif //_FX_SYSTEM
+
+#elif _FX_CALCULATION_TYPE == _FX_LONGLONG
+#if _FX_SYSTEM == _FX_S1615
+    ret = FX_S1615_LONGLONG_DIV3(fa, fb);
+#elif _FX_SYSTEM == _FX_S1516
+    ret = fx_s1516_longlong_div0(double_to_fx_s1516(fa), double_to_fx_s1516(fb));
+#elif _FX_SYSTEM == _FX_S2308
+    ret = FX_S2308_L_DIV1(fa, fb);
+#elif _FX_SYSTEM == _FX_S3231
+    ret = fx_3231_longlong_div1(fa, fb);
+#elif _FX_SYSTEM == _FX_S3132
+    ret = fx_s3132_div(fa, fb);
+#elif _FX_SYSTEM == _FX_S4716
+    ret = FX_S4716_LONGLONG_DIV(fa, fb);
+#endif //_FX_SYSTEM
+#endif // _FX_CALCULATION_TYPE
     return 0;
 }
 
@@ -156,7 +188,7 @@ fixed_t fx_sqrt(fixed_t fa)
 #elif _FX_SYSTEM == _FX_S3132
     ret = fx_s3132_sqrt2(fa);
 #elif _FX_SYSTEM == _FX_S4716
-    FX_S4716_DOUBLE_SQRT(FX_S4716_TO_DOUBLE(fa));
+    ret = FX_S4716_DOUBLE_SQRT(FX_S4716_TO_DOUBLE(fa));
 #endif //_FX_SYSTEM
 
 #elif _FX_CALCULATION_TYPE == _FX_LONGLONG
