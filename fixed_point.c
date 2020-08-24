@@ -273,7 +273,7 @@ fixed_t fx_sin(fixed_t fa)
 #elif _FX_SYSTEM == _FX_S3132
     // no implements
 #elif _FX_SYSTEM == _FX_S4716
-    ret = fx_s4716_longlong_sin(fa);
+    ret = fx_s4716_longlong_sin(FX_S4716_TO_DOUBLE(fa));
 #endif //_FX_SYSTEM
 
 #endif // _FX_CALCULATION_TYPE
@@ -324,7 +324,7 @@ fixed_t fx_sqrt(fixed_t fa)
 #elif _FX_SYSTEM == _FX_S3132
     ret = fx_s3132_sqrt2(fa);
 #elif _FX_SYSTEM == _FX_S4716
-    ret = FX_S4716_DOUBLE_SQRT(FX_S4716_TO_DOUBLE(fa));
+    ret = FX_S4716_DOUBLE_SQRT(fa);
 #endif //_FX_SYSTEM
 
 #elif _FX_CALCULATION_TYPE == _FX_LONGLONG
