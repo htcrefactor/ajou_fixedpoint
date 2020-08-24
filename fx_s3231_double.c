@@ -3,7 +3,7 @@
 
 fx_s3231 fx_3231_double_sin(fx_s3231 a)
 {
-    return doubleToFx(sin(fxToDouble(a)));
+    return doubleToFx(sin(fxToDouble(a)*3.141592653/180));
 }
 
 fx_s3231 fx_3231_double_sqrt(fx_s3231 a)
