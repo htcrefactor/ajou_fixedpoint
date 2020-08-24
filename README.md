@@ -89,20 +89,12 @@
 
 ## 2. Function-Specific Comparison
 
-### 2-1. Available Functions per Type 
+### 2-1. Available Functions per Type & Valid Range
 
-![image](images/Function_list.png)
-
-
-<br>
-<br>
-
-### 2-2. Valid Range
-
-(유효범위 넣기)
+![image](images/Function_list_double.png)
+![image](images/Function_list_longlong.png)
 
 
-<br>
 <br>
 <br>
 
