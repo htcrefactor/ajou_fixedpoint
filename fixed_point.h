@@ -40,8 +40,13 @@ _FX_LONGLONG
 */
 
 
-#define _FX_SYSTEM _FX_S1615
-#define _FX_CALCULATION_TYPE _FX_DOUBLE
+#ifndef _FX_SYSTEM
+#   define _FX_SYSTEM 1
+#endif
+
+#ifndef _FX_CALCULATION_TYPE
+#   define _FX_CALCULATION_TYPE 1
+#endif
 
 #if _FX_SYSTEM == _FX_S1615
 typedef fx_s1615 fixed_t;
