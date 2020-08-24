@@ -4,7 +4,7 @@
 
 fx_s3132 fx_s3132_sin2(fx_s3132 a)
 {
-    return double_to_fx_s3132(sin(fx_s3132_to_double(a)));
+    return double_to_fx_s3132(sin(fx_s3132_to_double(a)*3.141592653/180));
 }
 
 fx_s3132 fx_s3132_sqrt2(fx_s3132 a)

@@ -1,5 +1,5 @@
 #define P2_31 2147483648.0
-#define doubleToFx(a) ((long long)((a) * (P2_31)))
+#define doubleToFx(a) ((a) * (P2_31))
 #define fxToDouble(a) ((a) / (P2_31))
 #define FX_S3231_PI doubleToFx(3.141592653)
 #define FX_E doubleToFx(2.718281828)
