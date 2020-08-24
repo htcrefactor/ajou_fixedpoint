@@ -187,7 +187,7 @@ fixed_t fx_div1(fixed_t fa, fixed_t fb)
 #elif _FX_SYSTEM == _FX_S3231
     ret = fx_3231_longlong_div1(fa, fb);
 #elif _FX_SYSTEM == _FX_S3132
-    ret = fx_s3132_div(fa, fb);
+    ret = fx32_div(fa, fb);
 #elif _FX_SYSTEM == _FX_S4716
     ret = FX_S4716_LONGLONG_DIV1(fa, fb);
 #endif //_FX_SYSTEM
@@ -209,7 +209,7 @@ fixed_t fx_div2(fixed_t fa, fixed_t fb)
 #elif _FX_SYSTEM == _FX_S3231
     ret = fx_3231_longlong_div2(fa, fb);
 #elif _FX_SYSTEM == _FX_S3132
-    ret = fx_s3132_div1(fa, fb);
+    ret = fx32_div1(fa, fb);
 #elif _FX_SYSTEM == _FX_S4716
     ret = FX_S4716_LONGLONG_DIV2(fa, fb);
 #endif //_FX_SYSTEM
@@ -231,7 +231,7 @@ fixed_t fx_div3(fixed_t fa, fixed_t fb)
 #elif _FX_SYSTEM == _FX_S3231
     ret = fx_3231_longlong_div3(fa, fb);
 #elif _FX_SYSTEM == _FX_S3132
-    ret = fx_s3132_div2(fa, fb);
+    ret = fx32_div2(fa, fb);
 #elif _FX_SYSTEM == _FX_S4716
     ret = FX_S4716_LONGLONG_DIV3(fa, fb);
 #endif //_FX_SYSTEM
