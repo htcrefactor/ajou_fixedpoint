@@ -50,7 +50,7 @@ fx_s4716 fx_s4716_longlong_div3(fx_s4716 a, fx_s4716 b)
     long long result = FX_S4716_LONGLONG_DIV3(a, b);
     return fx_s4716_to_longlong(result);
 }
-fx_s4716 fx_s4716_longlong_sin(fx_s4716 a)
+fx_s4716 fx_s4716_longlong_sin(fx_s4716 a) // 인자가 실제론 double...
 {
     long long quotient, remain, result;
     remain = a % 180;
@@ -59,5 +59,5 @@ fx_s4716 fx_s4716_longlong_sin(fx_s4716 a)
     quotient = a / 180;
 
     result = (sinTable[remain]) * (pow(-1.0, quotient));
-    return fx_s4716_to_longlong(result);
+    return result;
 }
