@@ -38,12 +38,12 @@ double degree_to_radian(double a)
 
 fx_s1516 fx_s1516_double_sin(double a)
 {
-    return double_to_fx_s1516(sin(a * P2_16) );
+    return double_to_fx_s1516(sin(degree_to_radian(a)));
 }
 
 fx_s1516 fx_s1516_double_sqrt(double a)
 {
-    return double_to_fx_s1516(sqrt(a));
+    return double_to_fx_s1516(sqrt(a) );
 }
 
 fx_s1516 fx_s1516_double_pow(double a, double b)
