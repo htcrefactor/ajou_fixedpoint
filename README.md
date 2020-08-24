@@ -1,6 +1,5 @@
 # ajou_fx_team1
 아주대학교 2020년 여름방학 실전코딩2 고정 소수점 연산 통합 라이브러리
-
 ## 팀원
 
 | 이름 | 학번 | 
@@ -15,22 +14,22 @@
 
 ## 목차
 
-- [1. functions](#1-functions)
-  * [1-1. FX SYSTEM](#1-1-fx-system)
-  * [1-2. FX CALCULATION TYPE](#1-2-fx-calculation-type)
-  * [1-3. functions provided](#1-3-functions-provided)
-- [2. function-specific comparison](#2-function-specific-comparison)
-  * [2-1. available functions for each type](#2-1-available-functions-for-each-type)
-  * [2-2. effective range](#2-2-effective-range)
-- [3. execution method](#3-execution-method)
+- [1. Functions](#1-Functions)
+  * [1-1. FX System](#1-1-FX-System)
+  * [1-2. FX Calculation Type](#1-2-FX-Calculation-Type)
+  * [1-3. Functions Provided](#1-3-Functions-Provided)
+- [2. Function-Specific Comparison](#2-Function-Specific-Comparison)
+  * [2-1. Available Functions per Type](#2-1-Available-Functions-per-Type)
+  * [2-2. Valid Range](#2-2-Valid-Range)
+- [3. Execution Method](#3-Execution-Method)
 
 
 <br>
 
 
-## 1. functions
+## 1. Functions
 
-### 1-1. FX SYSTEM
+### 1-1. FX System
 
 
 ```
@@ -48,7 +47,7 @@
 <br>
 <br>
 
-### 1-2. FX CALCULATION TYPE
+### 1-2. FX Calculation Type
  
 
 ```
@@ -61,7 +60,7 @@
 <br>
 
 
-### 1-3. functions provided
+### 1-3. Functions Provided
 
 
 | 매크로 및 함수 이름 | 기능 |
@@ -91,9 +90,9 @@
 
 
 
-## 2. function-specific comparison
+## 2. Function-Specific Comparison
 
-### 2-1. available functions for each type 
+### 2-1. Available Functions per Type 
 
 ![image](images/Function_list.png)
 
@@ -101,7 +100,7 @@
 <br>
 <br>
 
-### 2-2. effective range
+### 2-2. Valid Range
 
 (유효범위 넣기)
 
@@ -110,10 +109,8 @@
 <br>
 <br>
 
-## 3. execution method
+## 3. Execution Method
 
-
-(수정 필요!!!!!->제맘대로 썼어요 ㅜ_ㅜ 정확히 메크로 어떻게 지정하는지 잘 모르겠어용..!)
 
 - 다음과 같은 순서로 빌드 후 실행 결과를 확인한다.     
         1. ``make DEFINE=D[macro] ``   
