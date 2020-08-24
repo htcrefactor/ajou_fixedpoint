@@ -14,15 +14,13 @@
 
 ## 목차
 
-- [1. Functions](#1-Functions)
-  * [1-1. FX System](#1-1-FX-System)
-  * [1-2. FX Calculation Type](#1-2-FX-Calculation-Type)
-  * [1-3. Functions Provided](#1-3-Functions-Provided)
-- [2. Function-Specific Comparison](#2-Function-Specific-Comparison)
-  * [2-1. Available Functions per Type](#2-1-Available-Functions-per-Type)
-  * [2-2. Valid Range](#2-2-Valid-Range)
-- [3. Execution Method](#3-Execution-Method)
-
+- [1. Functions](#1-functions)
+  * [1-1. FX System](#1-1-fx-system)
+  * [1-2. FX Calculation Type](#1-2-fx-calculation-type)
+  * [1-3. Functions Provided](#1-3-functions-provided)
+- [2. Function-Specific Comparison](#2-function-specific-comparison)
+  * [2-1. Available Functions per Type & Valid Range](#2-1-available-functions-per-type---valid-range)
+- [3. Execution Method](#3-execution-method)
 
 <br>
 
