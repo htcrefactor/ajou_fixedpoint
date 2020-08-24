@@ -24,7 +24,7 @@ fixed_t fx_add(fixed_t fa, fixed_t fb)
 #if _FX_SYSTEM == _FX_S1615
     ret = FX_S1615_ADD(fa, fb);
 #elif _FX_SYSTEM == _FX_S1516
-    ret = fx_s1516_double_add(double_to_fx_s1516(fa), double_to_fx_s1516(fb));
+    ret = fx_s1516_double_add(fx_s1516_to_double(fa), fx_s1516_to_double(fb));
 #elif _FX_SYSTEM == _FX_S2308
     ret = FX_S2308_ADD(fa, fb);
 #elif _FX_SYSTEM == _FX_S3231
@@ -51,7 +51,7 @@ fixed_t fx_sub(fixed_t fa, fixed_t fb)
 #if _FX_SYSTEM == _FX_S1615
     ret = FX_S1615_SUB(fa, fb);
 #elif _FX_SYSTEM == _FX_S1516
-    ret = fx_s1516_double_sub(double_to_fx_s1516(fa), double_to_fx_s1516(fb));
+    ret = fx_s1516_double_sub(fx_s1516_to_double(fa), fx_s1516_to_double(fb));
 #elif _FX_SYSTEM == _FX_S2308
     ret = FX_S2308_SUB(fa, fb);
 #elif _FX_SYSTEM == _FX_S3231
@@ -166,7 +166,7 @@ fixed_t fx_div1(fixed_t fa, fixed_t fb)
 #if _FX_SYSTEM == _FX_S1615
     ret = FX_S1615_DIV(fa, fb);
 #elif _FX_SYSTEM == _FX_S1516
-    ret = fx_s1516_double_div(double_to_fx_s1516(fa), double_to_fx_s1516(fb));
+    ret = fx_s1516_double_div(fx_s1516_to_double(fa), fx_s1516_to_double(fb));
 #elif _FX_SYSTEM == _FX_S2308
     ret = FX_S2308_DIV(fa, fb);
 #elif _FX_SYSTEM == _FX_S3231
@@ -181,7 +181,7 @@ fixed_t fx_div1(fixed_t fa, fixed_t fb)
 #if _FX_SYSTEM == _FX_S1615
     ret = FX_1615_LONGLONG_DIV01(fa, fb);
 #elif _FX_SYSTEM == _FX_S1516
-    ret = fx_s1516_longlong_div0(double_to_fx_s1516(fa), double_to_fx_s1516(fb));
+    ret = fx_s1516_longlong_div0(fa, fb);
 #elif _FX_SYSTEM == _FX_S2308
     ret = FX_S2308_L_DIV1(fa, fb);
 #elif _FX_SYSTEM == _FX_S3231
@@ -203,7 +203,7 @@ fixed_t fx_div2(fixed_t fa, fixed_t fb)
 #if _FX_SYSTEM == _FX_S1615
     ret = FX_1615_LONGLONG_DIV02(fa, fb);
 #elif _FX_SYSTEM == _FX_S1516
-    ret = fx_s1516_longlong_div1(double_to_fx_s1516(fa), double_to_fx_s1516(fb));
+    ret = fx_s1516_longlong_div1(fa, fb);
 #elif _FX_SYSTEM == _FX_S2308
     ret = FX_S2308_L_DIV2(fa, fb);
 #elif _FX_SYSTEM == _FX_S3231
@@ -225,7 +225,7 @@ fixed_t fx_div3(fixed_t fa, fixed_t fb)
 #if _FX_SYSTEM == _FX_S1615
     ret = FX_1615_LONGLONG_DIV03(fa, fb);
 #elif _FX_SYSTEM == _FX_S1516
-    ret = fx_s1516_longlong_div2(double_to_fx_s1516(fa), double_to_fx_s1516(fb));
+    ret = fx_s1516_longlong_div2(fa, fb);
 #elif _FX_SYSTEM == _FX_S2308
     //no implementation
 #elif _FX_SYSTEM == _FX_S3231

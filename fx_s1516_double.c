@@ -23,12 +23,12 @@ fx_s1516 fx_s1516_double_sub(double a, double b)
 
 fx_s1516 fx_s1516_double_mul(double a, double b)
 {
-    return double_to_fx_s1516((a) * (b)*P2_16);
+    return double_to_fx_s1516((a) * (b));
 }
 
 fx_s1516 fx_s1516_double_div(double a, double b)
 {
-    return double_to_fx_s1516((a) / (b) / P2_16);
+    return double_to_fx_s1516((a) / (b) );
 }
 
 double degree_to_radian(double a)
@@ -38,12 +38,12 @@ double degree_to_radian(double a)
 
 fx_s1516 fx_s1516_double_sin(double a)
 {
-    return double_to_fx_s1516(sin(a * P2_16) / (P2_16));
+    return double_to_fx_s1516(sin(a * P2_16) );
 }
 
 fx_s1516 fx_s1516_double_sqrt(double a)
 {
-    return double_to_fx_s1516(sqrt(a) / sqrt(P2_16));
+    return double_to_fx_s1516(sqrt(a));
 }
 
 fx_s1516 fx_s1516_double_pow(double a, double b)
