@@ -74,7 +74,7 @@
 | fixed_t fx_div1(fa, fb) | fixed_t로 표현된 두 값을 나눠준다. |
 | ---- | ---- |
 | [double인 경우 제공되는 함수] | |
-| fixed_t fx_sin(fa) | fixed_t로 표현된 각도값의 sine 을 구해준다.  | 
+| fixed_t fx_sin(fa) | fixed_t로 표현된 각도값(deg)의 sine 을 구해준다.  | 
 | fixed_t fx_pow(fa, fb) | fixed_t로 표현된 값의 n승을 구해준다. |
 | fixed_t fx_sqrt(fa) | fixed_t로 표현된 값의 제곱근을 구해준다. |
 | ---- | ---- |
@@ -83,9 +83,6 @@
 | fixed_t fx_mul3(fa, fb)| fixed_t로 표현된 두 값을 곱해준다. |
 | fixed_t fx_div2(fa, fb) | fixed_t로 표현된 두 값을 나눠준다. | 
 | fixed_t fx_div3(fa, fb) | fixed_t로 표현된 두 값을 나눠준다. |
-
-<br>
-<br>
 <br>
 
 
