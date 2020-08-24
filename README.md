@@ -113,8 +113,8 @@
 
 
 - 다음과 같은 순서로 빌드 후 실행 결과를 확인한다.     
-        1. ``make DEFINE=D[macro] ``   
-        2. ``./ajou_fx``
+        1. Build: `make FX_CALCULATION_TYPE=# FX_SYSTEM=#`. (사용자는 목적에 따라 `make FX_CALCULATION_TYPE=1 FX_SYSTEM=2`와 같이 `#`의 위치에 적절한 자연수 값을 입력해야 한다)    
+        2. Run: `./ajou_fx` or './ajou_fx.exe'
 
 
     - 조건부 컴파일을 이용하여 macro의 정의에 따라 다른 연산이 수행되도록 코드를 구성하였다.
