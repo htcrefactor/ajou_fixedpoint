@@ -5,7 +5,7 @@ FX_SYSTEM := 0
 FX_CALCULATION_TYPE := 0
 
 CC := gcc
-CFLAGS = -Wall -g -Iheaders -lm -D_FX_SYSTEM=$(FX_SYSTEM) -D_FX_CALCULATION_TYPE=$(FX_CALCULATION_TYPE)
+CFLAGS = -Iheaders -lm -D_FX_SYSTEM=$(FX_SYSTEM) -D_FX_CALCULATION_TYPE=$(FX_CALCULATION_TYPE)
 
 # ajou_fx : $(OBJS)
 #	$(CC) -o $@ $^
@@ -14,7 +14,6 @@ ajou_fx : $(SRCS)
 	$(CC) -o $@ $^ $(CFLAGS)
 
 clean: 
-	-rm $(OBJS)
 	-rm ajou_fx
 
 dep:
